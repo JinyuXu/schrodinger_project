@@ -14,7 +14,8 @@ install:
 script: tox
 
 before_install:
-- pip install coverage	
+- pip install coverage
+- pip install argparse
 
 # Assuming you have installed the travis-ci CLI tool, after you
 # create the Github repo and add it to Travis, run the
