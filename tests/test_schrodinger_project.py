@@ -13,38 +13,38 @@ def checkEqual(a, b):
     # input: a, b
     # output: T/F
     difference = abs(a - b)
-    if difference <0.00001:
+    if difference <0.0001:
         return True
     return False
 
 class Test(unittest.TestCase):
     
-    def input_test(self):
+    def test_input(self):
         testinput = sp.getinput()
         self.assertEqual(testinput.c, 1)
         self.assertEqual(testinput.basis_size, 3)
         self.assertEqual(testinput.data_table[0][0],0)
     
-    def LHSScalar_test(self):
+    def test_LHSScalar(self):
         testdata1 = [[0, 0]]
         self.assertEqual(sp.calculateLHSValue(testdata1, 0, 0), 1)
     
-    def v0_test(self):
+    def test_v0(self):
         sess = tf.Session()
         testdata = sp.getinput()
-        V = sp.calculateV0(testdata.data_table, testdata.size)
+        V = sp.calculateV0(testdata.data_table, testdata.basis_size)
         with sess.as_default():
             v0 = V.numpy()
-        self.assertTrue(checkEqual(v0[0,0], 6))
+        self.assertTrue(checkEqual(v0[0][0], 0))
 
-    def hhat_test(self):
+    def test_hHat(self):
         sess = tf.Session()
         testdata = sp.getinput()
-        V = sp.calculateV0(testdata.data_table, testdata.size)
+        V = sp.calculateV0(testdata.data_table, testdata.basis_size)
         hHat = sp.buildHHat(V, testdata.basis_size, testdata.c)
         with sess.as_default():
             h = hHat.numpy()
-        self.assertTrue(checkEqual(h[1][1], 1))
+        self.assertTrue(checkEqual(h[1][1], 7))
 
 
 
