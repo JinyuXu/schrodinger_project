@@ -13,7 +13,7 @@ with open('HISTORY.rst') as history_file:
 
 requirements = [ ]
 
-setup_requirements = ['pytest-runner', ]
+setup_requirements = ['pytest-runner', 'tensorflow']
 
 test_requirements = ['pytest', ]
 
