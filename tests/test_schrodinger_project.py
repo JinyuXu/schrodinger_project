@@ -17,14 +17,7 @@ def checkEqual(a, b):
         return True
     return False
 
-class Test(unittest.TestCase):
-    
-    # def test_input(self):
-    #     testinput = sp.getinput()
-    #     self.assertEqual(testinput.c, 1)
-    #     self.assertEqual(testinput.basis_size, 3)
-    #     self.assertEqual(testinput.data_table[0][0],0)
-    
+class Test(unittest.TestCase):    
     def test_LHSScalar(self):
         testdata1 = [[0, 0]]
         self.assertEqual(sp.calculateLHSValue(testdata1, 0, 0), 1)

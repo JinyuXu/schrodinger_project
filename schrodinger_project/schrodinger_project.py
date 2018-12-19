@@ -75,7 +75,6 @@ def calculateV0(data, size):
     RHS_tensor = tf.Variable(RHS, dtype=tf.float32)
     LHS_tensor = tf.Variable(LHS, dtype=tf.float32)
     V0 = tf.linalg.solve(LHS_tensor, rhs = RHS_tensor)
-    print(V0)
     return V0
 
 def buildHHat(V0, size, c):
@@ -90,7 +89,6 @@ def buildHHat(V0, size, c):
     for i in range(size):
         hHat[i][i] += i ** 2 * c
     hHat_tensor = tf.Variable(hHat, dtype=tf.float32)
-    print(hHat)
     return hHat_tensor
 
 def printResult(eighe, eighv): # pragma: no cover
