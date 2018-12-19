@@ -1,6 +1,8 @@
 ===================
 Schrodinger_Project
 ===================
+.. image:: https://coveralls.io/repos/github/JinyuXu/schrodinger_project/badge.svg?branch=master
+:target: https://coveralls.io/github/JinyuXu/schrodinger_project?branch=master
 
 
 .. image:: https://img.shields.io/pypi/v/schrodinger_project.svg
