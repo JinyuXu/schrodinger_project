@@ -89,7 +89,25 @@ def buildHHat(V0, size, c):
         hHat[i][i] += i ** 2 * c
     hHat_tensor = tf.Variable(hHat, dtype=tf.float32)
     return hHat_tensor
-                
+
+def printResult(eighe, eighv):
+    # This function print the result of lowest energy and corresponding wave function.
+    # input: eigenvalue, eigenvector.
+    # output: lowest energy and wave fucntion.
+    for i in range(len(eighe)):
+        if eighe[i] > 0 :
+            print('The lowest energy is {:.2f}.'.format(eighe[i]))
+            for k in range(len(eighv)):
+                if k == 0 :
+                    print('The scalar of 1 is {:.2f}'.format(eighv[i][k]))
+                elif k % 2 == 0:
+                    scalar = k / 2
+                    print('The scalar of cos{0}x is {1:2f}.'.format(scalar,eighv[i][k]))
+                else:
+                    scalar = (k + 1) / 2
+                    print('The scalar of sin{0}x is {1:2f}.'.format(scalar,eighv[i][k]))
+            break
+                 
 def main():
 
     # This function start the program.
@@ -104,9 +122,7 @@ def main():
     with sess.as_default():
         e=e_tensor.numpy()
         v=v_tensor.numpy()
-
-    print(e)
-    print(v)
+    printResult(e,v)
 
 if __name__ == "__main__":
     main()
