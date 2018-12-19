@@ -8,7 +8,7 @@ import json
 tf.enable_eager_execution()
 tfe = tf.contrib.eager
 
-def getinput():
+def getinput(): # pragma: no cover
     input = argparse.ArgumentParser()
     input.add_argument('--data_table', default='[[0,0],[1.57079,6],[3.14159,0]]', help = 'Input of data table' )
     input.add_argument('--c', type = float, default = 1, help = 'Value of c, default = 1' )
@@ -93,7 +93,7 @@ def buildHHat(V0, size, c):
     print(hHat)
     return hHat_tensor
 
-def printResult(eighe, eighv):
+def printResult(eighe, eighv): # pragma: no cover
     # This function print the result of lowest energy and corresponding wave function.
     # input: eigenvalue, eigenvector.
     # output: lowest energy and wave fucntion.
@@ -111,7 +111,7 @@ def printResult(eighe, eighv):
                     print('The scalar of sin{0}x is {1:2f}.'.format(scalar,eighv[i][k]))
             break
                  
-def main():
+def main(): # pragma: no cover
 
     # This function start the program.
     # input: /
