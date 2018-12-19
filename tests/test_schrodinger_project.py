@@ -19,11 +19,11 @@ def checkEqual(a, b):
 
 class Test(unittest.TestCase):
     
-    def test_input(self):
-        testinput = sp.getinput()
-        self.assertEqual(testinput.c, 1)
-        self.assertEqual(testinput.basis_size, 3)
-        self.assertEqual(testinput.data_table[0][0],0)
+    # def test_input(self):
+    #     testinput = sp.getinput()
+    #     self.assertEqual(testinput.c, 1)
+    #     self.assertEqual(testinput.basis_size, 3)
+    #     self.assertEqual(testinput.data_table[0][0],0)
     
     def test_LHSScalar(self):
         testdata1 = [[0, 0]]
@@ -31,17 +31,15 @@ class Test(unittest.TestCase):
     
     def test_v0(self):
         sess = tf.Session()
-        testdata = sp.getinput()
-        V = sp.calculateV0(testdata.data_table, testdata.basis_size)
+        V = sp.calculateV0([[0,0],[1.57079,6],[3.14159,0]], 3)
         with sess.as_default():
             v0 = V.numpy()
         self.assertTrue(checkEqual(v0[0][0], 0))
 
     def test_hHat(self):
         sess = tf.Session()
-        testdata = sp.getinput()
-        V = sp.calculateV0(testdata.data_table, testdata.basis_size)
-        hHat = sp.buildHHat(V, testdata.basis_size, testdata.c)
+        V = sp.calculateV0([[0,0],[1.57079,6],[3.14159,0]], 3)
+        hHat = sp.buildHHat(V, 3, 1)
         with sess.as_default():
             h = hHat.numpy()
         self.assertTrue(checkEqual(h[1][1], 7))
