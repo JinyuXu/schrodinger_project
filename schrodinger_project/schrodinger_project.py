@@ -4,15 +4,17 @@
 import tensorflow as tf
 import argparse
 import math
+import json
 tf.enable_eager_execution()
 tfe = tf.contrib.eager
 
 def getinput():
     input = argparse.ArgumentParser()
-    input.add_argument('--data_table',  nargs='*', default=[[0,0], [1.57079,6], [3.14159,0]], help = 'Input of data table' )
+    input.add_argument('--data_table', default='[[0,0],[1.57079,6],[3.14159,0]]', help = 'Input of data table' )
     input.add_argument('--c', type = float, default = 1, help = 'Value of c, default = 1' )
     input.add_argument('--basis_size', type = int, default = 3, help = 'Size of basis set' )
     data = input.parse_args()
+    data.data_table = json.loads(data.data_table)
     return data
 
 def calculateLHSValue(data, index1, index2):
