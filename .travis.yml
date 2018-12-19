@@ -17,7 +17,6 @@ script: tox
 
 before_install:
 - pip install coverage
-- pip install tensorflow
 
 # Assuming you have installed the travis-ci CLI tool, after you
 # create the Github repo and add it to Travis, run the
